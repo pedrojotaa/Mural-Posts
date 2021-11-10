@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#container{
+    max-width: 600px;
+    margin: auto;
+}
+
+#post h2{
+    margin-bottom: 10px;
+}
+
+#post input{
+    margin-bottom: 10px;
+}
+
+#mural{
+    margin-bottom: 20px;
+}
+
+.posts{
+    border: 1px solid black;
+}
+
+.posts h3{
+    background-color: #cccccc;
+    padding: 5px;
+}
+
+.posts p{
+    padding: 5px;
+}
