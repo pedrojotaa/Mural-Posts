@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', ()=> {
 })
 
 function updatePost(){
-    fetch('http://localhost:3000/api/all')
+    fetch('http://192.168.0.14:3000/api/all')
         .then(res => {
             return res.json()
         }).then(json => {
@@ -38,7 +38,7 @@ function newPost(){
         body: JSON.stringify(post)
     }
 
-    fetch('http://localhost:3000/api/new', options)
+    fetch('http://192.168.0.14:3000/api/new', options)
         .then(res => {
             updatePost()
             document.querySelector('#title').value = ''
