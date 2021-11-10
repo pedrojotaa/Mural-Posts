@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', ()=> {
 })
 
 function updatePost(){
-    fetch('http://localhost:3000/api/all').then(res => {
+    fetch('http://localhost:3000/api/all')
+        .then(res => {
             return res.json()
         }).then(json => {
 
@@ -26,4 +27,23 @@ function updatePost(){
 
 function newPost(){
 
+    let title = document.querySelector('#title').value
+    let description = document.querySelector('#description').value
+
+    let post = {title, description}
+
+    const options = {
+        method: 'POST',
+        headers: new Headers({'content-type': 'application/json'}),
+        body: JSON.stringify(post)
+    }
+
+    fetch('http://localhost:3000/api/new', options)
+        .then(res => {
+            updatePost()
+            document.querySelector('#title').value = ''
+            document.querySelector('#description').value = ''
+        })    
+
+    
 }
