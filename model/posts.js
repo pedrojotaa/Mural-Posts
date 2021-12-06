@@ -1,19 +1,16 @@
-module.exports = {
+const connection = require('../database/connection')
 
-    posts: [
-        {
-            id: 'fsdfsdf',
-            title: 'test title',
-            description: 'test description'
-        }
-    ],
+module.exports = {
 
     getAll(){
         return this.posts
     },
 
-    newPost(title, description){
-        return this.posts.push({id: generateID(), title, description})
+    add(title, description, res){
+        const sql = 'insert into mural set ?'
+
+        connection.query(sql, )
+
     }
   
 }
