@@ -1,4 +1,3 @@
-const bodyParser = require('body-parser')
 const cors = require('cors')
 
 const posts = require('../model/posts')
@@ -6,13 +5,14 @@ const posts = require('../model/posts')
 /* let options = {
     origin: 'http://localhost:3000'
 }
- */
-router.use(cors())
+
+
+router.use(cors()) */
 
 module.exports = app => {
     
     app.get('/all', (req, res) => {
-        res.json(JSON.stringify(posts.getAll()))
+        res.json(JSON.stringify(posts.get()))
     })
     
     app.post('/new', (req, res) => {
@@ -24,6 +24,4 @@ module.exports = app => {
     
         res.send('Post Adicionado')
     })
-    
-   
 }
