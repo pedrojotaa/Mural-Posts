@@ -1,13 +1,16 @@
-function updatePost(){
-    fetch('http://localhost:3000/api/all')
-        .then(res => {
-            return res.json()
-        }).then(json => {
+document.addEventListener('DOMContentLoaded', ()=> {
+    updatePost()
+})
 
+function updatePost(){
+    fetch('http://localhost:3000/all')
+        .then(res => { return res.json() })
+        .then(data => {
+            console.log(data)
             let postElements = ''
              
-            let posts = JSON.parse(json)
-
+            let posts = JSON.parse(JSON.stringify(data))
+            console.log(posts)
             posts.forEach((post) => {
 
                 let postElement = `<div class="posts" id="${post.id}">
@@ -34,12 +37,10 @@ function newPost(){
         body: JSON.stringify(post)
     }
 
-    fetch('http://localhost:3000/api/new', options)
+    fetch('http://localhost:3000/new', options)
         .then(res => {
             updatePost()
             document.querySelector('#title').value = ''
             document.querySelector('#description').value = ''
         })    
-
-    
 }

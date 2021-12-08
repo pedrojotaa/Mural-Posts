@@ -2,10 +2,10 @@ const connection = require('../database/connection')
 
 module.exports = {
 
-    add(title, description, res){
-        const sql = 'insert into mural set ?'
+    add(posts, res){
+        const sql = 'insert into post set ?'
 
-        connection.query(sql, [title, description], (erro, resultado) => {
+        connection.query(sql, posts, (erro, resultado) => {
             if(erro){
                 res.status(400).json(erro)
             }else{
@@ -15,16 +15,18 @@ module.exports = {
     },
 
     get(res){
-        const sql = 'select * from mural'
+        const sql = 'select * from post'
 
         connection.query(sql, (erro, resultado) => {
+
+            /* const valor = resultado[0]  */
+
             if(erro){
                 res.status(400).json(erro)
             }else{
                 res.status(200).json(resultado)
             }
         })
-
     }
 }
 

@@ -1,27 +1,19 @@
-const cors = require('cors')
-
-const posts = require('../model/posts')
-
 /* let options = {
     origin: 'http://localhost:3000'
 }
 
-
 router.use(cors()) */
 
+const Posts = require('../model/posts')
+
 module.exports = app => {
-    
     app.get('/all', (req, res) => {
-        res.json(JSON.stringify(posts.get()))
+        Posts.get(res)
     })
-    
-    app.post('/new', (req, res) => {
-      
-        let title = req.body.title
-        let description = req.body.description
         
-        posts.add(title, description, res)
-    
-        res.send('Post Adicionado')
+    app.post('/new', (req, res) => {
+        const posts = req.body
+
+        Posts.add(posts, res)
     })
 }
