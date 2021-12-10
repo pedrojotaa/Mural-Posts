@@ -9,7 +9,7 @@ module.exports = {
             if(erro){
                 res.status(400).json(erro)
             }else{
-                res.status(200).json(resultado)
+                res.status(200).json({posts})
             }
         })
     },
@@ -25,6 +25,32 @@ module.exports = {
                 res.status(400).json(erro)
             }else{
                 res.status(200).json(resultado)
+            }
+        })
+    },
+
+    deleteAll(res){
+
+        const sql = 'truncate table post'
+
+        connection.query(sql, (erro, resultado) => {
+            if(erro){
+                res.status(400).json(erro)
+            }else{
+                res.status(200).json(resultado)
+            }
+        })
+    },
+
+    deleteById(id, res){
+
+        const sql = 'delete from post where id=?'
+
+        connection.query(sql, id, (erro, resultado) => {
+            if(erro){
+                res.status(400).json(erro)
+            }else{
+                res.status(200).json({id})
             }
         })
     }

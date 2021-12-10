@@ -7,7 +7,7 @@ class Tabela {
     }
 
     createTable(){
-        const sql = `create table if not exists post (
+        const sql = `create table if not exists teste (
             id int primary key not null auto_increment,
             title varchar(20) not null,
             description varchar(50) not null

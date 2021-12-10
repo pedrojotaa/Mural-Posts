@@ -4,6 +4,7 @@ const Tables = require('./database/tables')
 const PORT = 3000
 const path = require('path')
 const express = require('express')
+
 connection.connect(erro => {
     if(erro){
         console.log(erro)

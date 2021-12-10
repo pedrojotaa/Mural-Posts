@@ -16,4 +16,15 @@ module.exports = app => {
 
         Posts.add(posts, res)
     })
+
+    app.delete('/delete', (req, res) => {
+        Posts.deleteAll(res)
+    })
+
+    app.delete('/delete/:id', (req, res) => {
+        
+        const id = parseInt(req.params.id)
+
+        Posts.deleteById(id, res)
+    })
 }
