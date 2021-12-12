@@ -10,9 +10,9 @@
 <body>
     <div id="container">
         <div id="new-post">
-            <h2>Post</h2>
-            <input type="text" placeholder="Titulo" id="title">
-            <input type="text" placeholder="Descrição" id="description">
+            <h2>Escreva seu Post!</h2>
+            <textarea type="text" placeholder="Titulo" id="title"></textarea>
+            <textarea type="text" placeholder="Descrição" id="description"></textarea>
             <button onclick="newPost()">Enviar</button>
         </div>
     
@@ -22,6 +22,7 @@
             
         </div>
         
+        <button onclick="deleteAll()">Deletar Tudo</button>
     </div>
 
     <script src="./script/script.js"></script>

@@ -6,11 +6,11 @@ function updatePost(){
     fetch('http://localhost:3000/all')
         .then(res => { return res.json() })
         .then(data => {
-            console.log(data)
+            
             let postElements = ''
              
             let posts = JSON.parse(JSON.stringify(data))
-            console.log(posts)
+            
             posts.forEach((post) => {
 
                 let postElement = `<div class="posts" id="${post.id}">
@@ -29,6 +29,10 @@ function newPost(){
     let title = document.querySelector('#title').value
     let description = document.querySelector('#description').value
 
+    if(title == 0 || description == 0){
+        
+    }
+
     let post = {title, description}
 
     const options = {
@@ -43,4 +47,10 @@ function newPost(){
             document.querySelector('#title').value = ''
             document.querySelector('#description').value = ''
         })    
+}
+
+function deleteAll(){
+
+    fetch('http://localhost:3000/delete', { method: 'DELETE' })
+    updatePost()
 }
